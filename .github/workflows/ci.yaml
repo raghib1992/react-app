@@ -16,6 +16,6 @@ jobs:
       - name: Install node js by command install or CI
         run: npm ci 
       - run: npm run format:check
-      - run: npm text -- --coverage
+      - run: npm test -- --coverage
         env:
           CI: true
