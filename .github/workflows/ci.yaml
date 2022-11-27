@@ -17,5 +17,5 @@ jobs:
         run: npm ci 
       - run: npm run format:check
       - run: npm text -- --coverage
-        with:
+        env:
           CI: true
