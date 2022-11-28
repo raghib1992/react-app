@@ -15,7 +15,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ~/.npm
-        # https://github.com/actions/cache/blob/main/examples.md#node---npm
+          # https://github.com/actions/cache/blob/main/examples.md#node---npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
@@ -45,7 +45,7 @@ jobs:
           name: build
           path: build
       - uses: actions/download-artifact@v3
-        if: github.event_name == 'push'
+        # if: github.event_name == 'push'
         #with:
       - name: deploy to staging
         if: github.event_name == 'push'
