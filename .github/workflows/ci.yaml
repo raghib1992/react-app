@@ -34,6 +34,9 @@ jobs:
         with:
           name: code-coverage
           path: coverage
+      - uses: actions/download-artifact@v3
+        with:
+          name: code-coverage
       - name: build Project
         if: github.event_name == 'push'
         run: npm run build
@@ -45,8 +48,9 @@ jobs:
           name: build
           path: build
       - uses: actions/download-artifact@v3
+        if: github.event_name == 'push'
         with:
-          name: code-coverage
+          name: build
         # if: github.event_name == 'push'
         #with:
       - name: deploy to staging
