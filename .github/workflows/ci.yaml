@@ -53,6 +53,10 @@ jobs:
           name: build
         # if: github.event_name == 'push'
         #with:
+      - name: Create a relese
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: deploy to staging
         if: github.event_name == 'push'
         run:  npx surge --project ./build --domain successful-battle.surge.sh
